@@ -1,0 +1,274 @@
+﻿/* Mobile First Enhancements */
+@media (max-width: 768px) {
+    /* Improve touch targets */
+    .btn, .nav-menu a, input, select, textarea {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Font size for mobile */
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Hero section mobile optimization */
+    .hero-section {
+        padding: 100px 0 50px;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    /* Card optimization */
+    .feature-card,
+    .mission-card,
+    .ministry-card,
+    .tech-item {
+        padding: 20px 15px;
+    }
+    
+    /* Grid optimization */
+    .features-grid,
+    .mission-cards,
+    .ministry-grid,
+    .tech-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Form optimization */
+    .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* CTA buttons */
+    .btn-large {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Tablet Optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+    
+    .features-grid,
+    .mission-cards,
+    .ministry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large Screen Optimization */
+@media (min-width: 1025px) {
+    /* Smooth animations */
+    .feature-card,
+    .mission-card,
+    .ministry-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover,
+    .mission-card:hover,
+    .ministry-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .main-header,
+    .hero-buttons,
+    .social-links,
+    .main-footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    section {
+        padding: 20px 0;
+        page-break-inside: avoid;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000080;
+        --secondary-color: #800000;
+        --dark-color: #000000;
+        --text-color: #000000;
+        --text-light: #333333;
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-color: #121212;
+        --light-color: #1e1e1e;
+        --white: #121212;
+        --text-color: #e0e0e0;
+        --text-light: #b0b0b0;
+        --shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    body {
+        background: var(--dark-color);
+        color: var(--text-color);
+    }
+    
+    .feature-card,
+    .mission-card,
+    .ministry-card,
+    .tech-item,
+    .contact-form {
+        background: #2d2d2d;
+        color: var(--text-color);
+    }
+    
+    .form-control {
+        background: #3d3d3d;
+        border-color: #555;
+        color: var(--text-color);
+    }
+}
+
+/* Orientation Specific */
+@media (orientation: portrait) {
+    .hero-section .container {
+        flex-direction: column;
+    }
+    
+    .hero-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero-section {
+        padding: 80px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 320px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Performance Optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lazy loading for images */
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Focus styles for accessibility */
+:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.skip-link:focus {
+    top: 0;
+}
